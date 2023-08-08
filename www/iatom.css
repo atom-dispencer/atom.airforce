@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,600;1,200;1,300&family=Roboto+Mono:ital,wght@0,400;0,700;1,700&family=Roboto:wght@100&display=swap");
 :root,
 [data-bs-theme=light] {
   --mo-blue: #0d6efd;
@@ -172,6 +173,86 @@
   --mo-form-invalid-border-color: #ea868f;
 }
 
-h1 {
-  background-color: #900;
+html, body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #900000;
+}
+
+/**
+* w: The width of boldening
+*/
+p, footer a {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+p.intro-title, footer a.intro-title {
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black, -2px -2px black, 2px 2px black, -2px 2px black, 2px -2px black;
+  font-size: 140px;
+  font-weight: 700;
+}
+
+p.intro-subheading-title, footer a.intro-subheading-title {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, -1px -1px black, 1px 1px black, -1px 1px black, 1px -1px black;
+  font-size: 70px;
+  font-weight: 500;
+}
+
+p.intro-subheading-body, footer a.intro-subheading-body {
+  font-size: 48px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+div.intro {
+  height: 90vh;
+  background-color: #006600;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+div.intro div.subheadings {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  min-width: 80vw;
+}
+div.intro div.subheadings div {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 0 5% 0 5%;
+}
+div.intro div.subheadings div.left {
+  align-items: flex-end;
+  text-align: right;
+}
+div.intro div.subheadings div.right {
+  align-items: flex-start;
+}
+
+div.main {
+  margin: 0.5%;
+}
+div.main p, div.main footer a, footer div.main a {
+  font-size: 36px;
+}
+
+footer {
+  margin: 0;
+  padding: 0 0.5% 0 0.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+  background-color: #000066;
+}
+footer p, footer a {
+  font-weight: 700;
+  font-size: 16px;
+  color: white;
 }/*# sourceMappingURL=iatom.css.map */
