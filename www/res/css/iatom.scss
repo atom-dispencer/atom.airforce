@@ -1,0 +1,176 @@
+// Functions first
+@import "../../../node_modules/bootstrap/scss/functions";
+
+// Variable overrides second
+$primary: #900;
+$enable-shadows: true;
+$prefix: "mo-";
+
+// Required Bootstrap imports
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/variables-dark";
+@import "../../../node_modules/bootstrap/scss/maps";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/root";
+
+// Optional Bootstrap imports
+
+// ============ iatom.uk customisation ============
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,600;1,200;1,300&family=Roboto+Mono:ital,wght@0,400;0,700;1,700&family=Roboto:wght@100&display=swap');
+// font-family: 'Nunito Sans', sans-serif;
+// font-family: 'Roboto', sans-serif;
+// font-family: 'Roboto Mono', monospace;
+
+$footer_height: 50px;
+
+$palette-darker: #494F5A; // Charcoal
+$palette-dark: #412CC9; // Chrysler blue
+$palette-mid: #A148AD; // Purpureus
+$palette-light: #C2BBF0; // Periwinkle
+$palette-lighter: #F1E3F3; // Pale purple
+
+html,
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: $palette-lighter;
+}
+
+/**
+* w: The width of boldening
+*/
+@mixin bold_shadow($w, $colour) {
+    text-shadow:
+        (-$w) 0 $colour, 0 $w $colour, $w 0 $colour, 0 (-$w) $colour,
+        (-$w) (-$w) $colour, $w $w $colour, (-$w) $w $colour, $w (
+        -$w) $colour;
+}
+
+p {
+    font-family: 'Roboto',
+        sans-serif;
+    margin: 0;
+    color: $palette-darker
+}
+
+p.intro-title {
+    @include bold_shadow(2px, $palette-darker
+);
+font-size: 140px;
+font-weight: 700;
+}
+
+p.intro-subheading-title {
+    @include bold_shadow(1px, $palette-darker);
+    font-size: 70px;
+    font-weight: 500;
+}
+
+p.intro-subheading-body {
+    font-size: 48px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+$intro-height: 60vh;
+
+div.intro {
+    position: fixed;
+    width: 100%;
+    height: $intro-height;
+    background-color: $palette-lighter;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
+    div.subheadings {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        min-width: 80vw;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            padding: 0 5% 0 5%;
+        }
+
+        div.left {
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        div.right {
+            align-items: flex-start;
+        }
+    }
+}
+
+$post-intro-overlap: -10vh;
+
+div.post-intro {
+    margin-top: $intro-height - $post-intro-overlap;
+    position: relative;
+    z-index: 10;
+
+    div.spacer {
+        aspect-ratio: 5;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url("../img/layered-waves-haikei.svg");
+    }
+
+    div.content {
+        background-color: $palette-dark;
+        padding: 1% 5% 1% 5%;
+        margin: 0;
+
+        div.main {
+            padding: 10px;
+            margin: 30px 0 0 0;
+
+            background-color: $palette-light;
+            border-radius: 10px;
+
+            p {
+                font-size: 36px;
+            }
+        }
+
+        footer {
+            padding: 10px; // T, R, B, L
+            margin: 30px 0 0 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            height: $footer_height;
+
+            background-color: $palette-darker;
+            border-radius: 10px;
+
+            p {
+                font-weight: 700;
+                font-size: 16px;
+                color: $palette-light;
+            }
+
+            a {
+                @extend p
+            }
+        }
+    }
+}
