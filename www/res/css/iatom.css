@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,600;1,200;1,300&family=Roboto+Mono:ital,wght@0,400;0,700;1,700&family=Roboto:wght@100&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 :root,
 [data-bs-theme=light] {
   --mo-blue: #0d6efd;
@@ -185,25 +186,25 @@ body {
 /**
 * w: The width of boldening
 */
-p, div.post-intro div.content footer a {
+p, div.post-intro div.content footer a, ul.personal-links a {
   font-family: "Roboto", sans-serif;
   margin: 0;
   color: #494F5A;
 }
 
-p.intro-title, div.post-intro div.content footer a.intro-title {
+p.intro-title, div.post-intro div.content footer a.intro-title, ul.personal-links a.intro-title {
   text-shadow: -2px 0 #494F5A, 0 2px #494F5A, 2px 0 #494F5A, 0 -2px #494F5A, -2px -2px #494F5A, 2px 2px #494F5A, -2px 2px #494F5A, 2px -2px #494F5A;
   font-size: 140px;
   font-weight: 700;
 }
 
-p.intro-subheading-title, div.post-intro div.content footer a.intro-subheading-title {
+p.intro-subheading-title, div.post-intro div.content footer a.intro-subheading-title, ul.personal-links a.intro-subheading-title {
   text-shadow: -1px 0 #494F5A, 0 1px #494F5A, 1px 0 #494F5A, 0 -1px #494F5A, -1px -1px #494F5A, 1px 1px #494F5A, -1px 1px #494F5A, 1px -1px #494F5A;
   font-size: 70px;
   font-weight: 500;
 }
 
-p.intro-subheading-body, div.post-intro div.content footer a.intro-subheading-body {
+p.intro-subheading-body, div.post-intro div.content footer a.intro-subheading-body, ul.personal-links a.intro-subheading-body {
   font-size: 48px;
   font-weight: 400;
   font-style: italic;
@@ -239,6 +240,21 @@ div.intro div.subheadings div.right {
   align-items: flex-start;
 }
 
+ul.personal-links {
+  list-style: none;
+  padding-left: 3%;
+}
+ul.personal-links li {
+  display: inline-block;
+  padding: 0 10px 0 10px;
+}
+ul.personal-links a {
+  text-decoration: none;
+}
+ul.personal-links p, ul.personal-links div.post-intro div.content footer a, div.post-intro div.content footer ul.personal-links a, ul.personal-links a {
+  font-size: 36px;
+}
+
 div.post-intro {
   margin-top: 70vh;
   position: relative;
@@ -262,9 +278,15 @@ div.post-intro div.content div.main {
   margin: 30px 0 0 0;
   background-color: #C2BBF0;
   border-radius: 10px;
+  display: grid;
 }
-div.post-intro div.content div.main p, div.post-intro div.content div.main footer a, div.post-intro div.content footer div.main a {
-  font-size: 36px;
+div.post-intro div.content div.main div.left {
+  grid-row: 1;
+  grid-column: 1;
+}
+div.post-intro div.content div.main div.right {
+  grid-row: 1;
+  grid-column: 2;
 }
 div.post-intro div.content footer {
   padding: 10px;
