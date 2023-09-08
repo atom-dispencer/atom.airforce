@@ -1,5 +1,61 @@
 // iatom.uk
 
+
+
+
+// SCROLLING
+
+function isUserAtTop() {
+    return (document.documentElement.scrollTop || document.body.scrollTop) === 0;
+}
+
+var autoScrolling = false
+var scrollTimeout;
+addEventListener('scroll', function(e) {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(function() {
+        autoScrolling = false
+    }, 100);
+});
+
+window.addEventListener("wheel", function (event) {
+
+    if(autoScrolling) {
+        event.preventDefault()
+    }
+
+    if (isUserAtTop() && event.deltaY > 0) {
+        autoScrolling = true
+        event.preventDefault()
+        const elem = document.getElementById("main-section")
+        console.log("Autoscrolling to " + elem)
+
+        this.setTimeout(function () {
+            elem.scrollIntoView({
+                block: "center"
+            })
+        }, 100)
+    }
+}, {passive: false})
+
+
+
+
+// BUTTONS
+
+function openUrl(url) {
+    if($('[name="openLinksInNewTabSwitch"]').is(':checked')) {
+        open(url, "_blank")
+    } else {
+        open(url, "_self")
+    }
+}
+
+
+// BURRING
+
+
+
 const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
 const centreX = (elem) => elem.offset().left + (elem.width() / 2)
 const centreY = (elem) => elem.offset().top + (elem.height() / 2)
