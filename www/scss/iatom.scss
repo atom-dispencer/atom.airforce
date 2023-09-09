@@ -37,9 +37,11 @@ $prefix: "mo-";
 
 $footer_height: 50px;
 
+$palette-darkest: #311735;
 $palette-darker: #494F5A; // Charcoal
 $palette-dark: #412CC9; // Chrysler blue
 $palette-mid: #A148AD; // Purpureus
+$palette-mid-light: #b5aea4;
 $palette-light: #C2BBF0; // Periwinkle
 $palette-lighter: #F1E3F3; // Pale purple
 
@@ -47,15 +49,21 @@ html,
 body {
     margin: 0;
     min-height: 100vh;
+    width: 100%;
     scroll-behavior: smooth !important;
 
     display: flex;
     flex-direction: column;
 
-    background-color: $palette-lighter;
+    @media (prefers-color-scheme: light) {
+        background-color: $palette-lighter;
+    }
+    @media (prefers-color-scheme: dark) {
+        background-color: $palette-darkest;
+    }
 }
 
-/**
+/*
 * w: The width of boldening
 */
 @mixin bold_shadow($w, $colour) {
@@ -65,11 +73,20 @@ body {
         -$w) $colour;
 }
 
+@mixin font_family() {
+    font-family: 'Roboto', sans-serif;
+
+    @media (prefers-color-scheme: light) {
+        color: $palette-darker;
+    }
+    @media (prefers-color-scheme: dark) {
+        color: $palette-mid-light;
+    }
+}
+
 p {
-    font-family: 'Roboto',
-        sans-serif;
+    @include font_family();
     margin: 0;
-    color: $palette-darker
 }
 
 a.citation {
@@ -79,24 +96,11 @@ a.citation {
     font-style: italic;
 }
 
-p.intro-title {
-    @include bold_shadow(2px, $palette-darker
-);
-font-size: 140px;
-font-weight: 700;
+span.nowrap {
+    text-wrap: nowrap;
 }
 
-p.intro-subheading-title {
-    @include bold_shadow(1px, $palette-darker);
-    font-size: 70px;
-    font-weight: 500;
-}
 
-p.intro-subheading-body {
-    font-size: 48px;
-    font-weight: 400;
-    font-style: italic;
-}
 
 $intro-height: 60vh;
 
@@ -104,33 +108,51 @@ div.intro {
     position: fixed;
     width: 100%;
     height: $intro-height;
-    background-color: $palette-lighter;
 
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     justify-items: center;
 
+    h1 {
+        @include font_family();
+        @include bold_shadow(2px, $palette-darker);
+
+        font-size: 9vw;
+        font-weight: 700;
+        text-align: center;
+    
+        width: 70vw;
+    }
+
+    h2 {
+        @include font_family();
+        @include bold_shadow(1px, $palette-darker);
+
+        font-size: 70px;
+        font-weight: 500;
+        text-wrap: nowrap;
+    }
+
+    p {
+        font-size: 48px;
+        font-weight: 400;
+        font-style: italic;
+        text-wrap: pretty;
+    }
+
     div.subheadings {
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         min-width: 80vw;
 
-        div {
+        div.subheading {
             display: flex;
             flex-direction: column;
             width: 50%;
             padding: 0 5% 0 5%;
-        }
-
-        div.left {
-            align-items: flex-end;
-            text-align: right;
-        }
-
-        div.right {
-            align-items: flex-start;
         }
     }
 }
@@ -143,9 +165,11 @@ ul.personal-links {
     text-align: right;
 
     li {
-        display: block;
         padding: 0 10px 0 10px;
-        //float: right;
+
+        display: block;
+                
+        text-wrap: nowrap;
     }
 
     
@@ -165,6 +189,7 @@ div.post-intro {
     margin-top: $intro-height - $post-intro-overlap;
     position: relative;
     z-index: 10;
+    width: 100%;
 
     div.spacer {
         aspect-ratio: 5;
@@ -180,18 +205,33 @@ div.post-intro {
         padding: 1% 5% 1% 5%;
         margin: 0;
 
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+
         div.main {
             padding: 10px;
             margin: 30px 0 0 0;
 
-            background-color: $palette-light;
+            @media (prefers-color-scheme: light) {
+                background-color: $palette-light;
+            }
+            @media (prefers-color-scheme: dark) {
+                background-color: $palette-darker;
+            }
             border-radius: 10px;
 
-            display: grid;
+            width: 90vw;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
 
             div.left {
-                grid-row: 1;
-                grid-column: 1;
                 padding-right: 10%;
 
                 display: flex;
@@ -202,8 +242,6 @@ div.post-intro {
             }
 
             div.right {
-                grid-row: 1;
-                grid-column: 2;
                 padding-left: 10%;
 
                 display: flex;
@@ -225,13 +263,24 @@ div.post-intro {
 
             height: $footer_height;
 
-            background-color: $palette-darker;
+            @media (prefers-color-scheme: light) {
+                background-color: $palette-light;
+                p {
+                    color: $palette-darker;    
+                }
+            }
+            @media (prefers-color-scheme: dark) {
+                background-color: $palette-darker;
+                p {
+                    color: $palette-light;
+                }
+            }
+
             border-radius: 10px;
 
             p {
                 font-weight: 700;
                 font-size: 16px;
-                color: $palette-light;
             }
 
             a {

@@ -12011,19 +12011,40 @@ html,
 body {
   margin: 0;
   min-height: 100vh;
+  width: 100%;
   scroll-behavior: smooth !important;
   display: flex;
   flex-direction: column;
-  background-color: #F1E3F3;
+}
+@media (prefers-color-scheme: light) {
+  html,
+  body {
+    background-color: #F1E3F3;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: #311735;
+  }
 }
 
-/**
+/*
 * w: The width of boldening
 */
 p, div.post-intro div.content footer a, ul.personal-links a, a.citation {
   font-family: "Roboto", sans-serif;
   margin: 0;
-  color: #494F5A;
+}
+@media (prefers-color-scheme: light) {
+  p, div.post-intro div.content footer a, ul.personal-links a, a.citation {
+    color: #494F5A;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  p, div.post-intro div.content footer a, ul.personal-links a, a.citation {
+    color: #b5aea4;
+  }
 }
 
 a.citation {
@@ -12032,52 +12053,72 @@ a.citation {
   font-style: italic;
 }
 
-p.intro-title, div.post-intro div.content footer a.intro-title, ul.personal-links a.intro-title, a.intro-title.citation {
-  text-shadow: -2px 0 #494F5A, 0 2px #494F5A, 2px 0 #494F5A, 0 -2px #494F5A, -2px -2px #494F5A, 2px 2px #494F5A, -2px 2px #494F5A, 2px -2px #494F5A;
-  font-size: 140px;
-  font-weight: 700;
-}
-
-p.intro-subheading-title, div.post-intro div.content footer a.intro-subheading-title, ul.personal-links a.intro-subheading-title, a.intro-subheading-title.citation {
-  text-shadow: -1px 0 #494F5A, 0 1px #494F5A, 1px 0 #494F5A, 0 -1px #494F5A, -1px -1px #494F5A, 1px 1px #494F5A, -1px 1px #494F5A, 1px -1px #494F5A;
-  font-size: 70px;
-  font-weight: 500;
-}
-
-p.intro-subheading-body, div.post-intro div.content footer a.intro-subheading-body, ul.personal-links a.intro-subheading-body, a.intro-subheading-body.citation {
-  font-size: 48px;
-  font-weight: 400;
-  font-style: italic;
+span.nowrap {
+  text-wrap: nowrap;
 }
 
 div.intro {
   position: fixed;
   width: 100%;
   height: 60vh;
-  background-color: #F1E3F3;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   justify-items: center;
 }
+div.intro h1, div.intro .h1 {
+  font-family: "Roboto", sans-serif;
+  text-shadow: -2px 0 #494F5A, 0 2px #494F5A, 2px 0 #494F5A, 0 -2px #494F5A, -2px -2px #494F5A, 2px 2px #494F5A, -2px 2px #494F5A, 2px -2px #494F5A;
+  font-size: 9vw;
+  font-weight: 700;
+  text-align: center;
+  width: 70vw;
+}
+@media (prefers-color-scheme: light) {
+  div.intro h1, div.intro .h1 {
+    color: #494F5A;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  div.intro h1, div.intro .h1 {
+    color: #b5aea4;
+  }
+}
+div.intro h2, div.intro .h2 {
+  font-family: "Roboto", sans-serif;
+  text-shadow: -1px 0 #494F5A, 0 1px #494F5A, 1px 0 #494F5A, 0 -1px #494F5A, -1px -1px #494F5A, 1px 1px #494F5A, -1px 1px #494F5A, 1px -1px #494F5A;
+  font-size: 70px;
+  font-weight: 500;
+  text-wrap: nowrap;
+}
+@media (prefers-color-scheme: light) {
+  div.intro h2, div.intro .h2 {
+    color: #494F5A;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  div.intro h2, div.intro .h2 {
+    color: #b5aea4;
+  }
+}
+div.intro p, div.intro div.post-intro div.content footer a, div.post-intro div.content footer div.intro a, div.intro ul.personal-links a, ul.personal-links div.intro a, div.intro a.citation {
+  font-size: 48px;
+  font-weight: 400;
+  font-style: italic;
+  text-wrap: pretty;
+}
 div.intro div.subheadings {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   min-width: 80vw;
 }
-div.intro div.subheadings div {
+div.intro div.subheadings div.subheading {
   display: flex;
   flex-direction: column;
   width: 50%;
   padding: 0 5% 0 5%;
-}
-div.intro div.subheadings div.left {
-  align-items: flex-end;
-  text-align: right;
-}
-div.intro div.subheadings div.right {
-  align-items: flex-start;
 }
 
 ul.personal-links {
@@ -12086,8 +12127,9 @@ ul.personal-links {
   text-align: right;
 }
 ul.personal-links li {
-  display: block;
   padding: 0 10px 0 10px;
+  display: block;
+  text-wrap: nowrap;
 }
 ul.personal-links p, ul.personal-links div.post-intro div.content footer a, div.post-intro div.content footer ul.personal-links a, ul.personal-links a {
   font-size: 36px;
@@ -12102,6 +12144,7 @@ div.post-intro {
   margin-top: 70vh;
   position: relative;
   z-index: 10;
+  width: 100%;
 }
 div.post-intro div.spacer {
   aspect-ratio: 5;
@@ -12115,17 +12158,35 @@ div.post-intro div.content {
   background-color: #412CC9;
   padding: 1% 5% 1% 5%;
   margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 div.post-intro div.content div.main {
   padding: 10px;
   margin: 30px 0 0 0;
-  background-color: #C2BBF0;
   border-radius: 10px;
-  display: grid;
+  width: 90vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+@media (prefers-color-scheme: light) {
+  div.post-intro div.content div.main {
+    background-color: #C2BBF0;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  div.post-intro div.content div.main {
+    background-color: #494F5A;
+  }
 }
 div.post-intro div.content div.main div.left {
-  grid-row: 1;
-  grid-column: 1;
   padding-right: 10%;
   display: flex;
   flex-wrap: wrap;
@@ -12134,8 +12195,6 @@ div.post-intro div.content div.main div.left {
   justify-content: center;
 }
 div.post-intro div.content div.main div.right {
-  grid-row: 1;
-  grid-column: 2;
   padding-left: 10%;
   display: flex;
   flex-wrap: wrap;
@@ -12151,11 +12210,25 @@ div.post-intro div.content footer {
   justify-content: center;
   align-items: center;
   height: 50px;
-  background-color: #494F5A;
   border-radius: 10px;
+}
+@media (prefers-color-scheme: light) {
+  div.post-intro div.content footer {
+    background-color: #C2BBF0;
+  }
+  div.post-intro div.content footer p, div.post-intro div.content footer a {
+    color: #494F5A;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  div.post-intro div.content footer {
+    background-color: #494F5A;
+  }
+  div.post-intro div.content footer p, div.post-intro div.content footer a {
+    color: #C2BBF0;
+  }
 }
 div.post-intro div.content footer p, div.post-intro div.content footer a {
   font-weight: 700;
   font-size: 16px;
-  color: #C2BBF0;
 }/*# sourceMappingURL=iatom.css.map */
