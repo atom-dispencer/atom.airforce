@@ -2,6 +2,15 @@
 
 
 
+// TOUCH SCREENS
+
+function isTouchDevice() {
+    return (('ontouchstart' in window) ||
+       (navigator.maxTouchPoints > 0) ||
+       (navigator.msMaxTouchPoints > 0));
+}
+
+
 
 // SCROLLING
 
@@ -108,8 +117,15 @@ $(window).mousemove(function (event) {
         }
         sh.css(newCss)
     }
-    shBlur(shLeft, blurScale)
-    shBlur(shRight, 1 - blurScale)
-    shTranslate(shLeft, mouseX / $(window).width())
-    shTranslate(shRight, mouseX / $(window).width())
+    if(isTouchDevice()) {
+        shBlur(shLeft, 0)
+        shBlur(shRight, 0)
+        shTranslate(shLeft, 0)
+        shTranslate(shRight, 0)
+    } else {
+        shBlur(shLeft, blurScale)
+        shBlur(shRight, 1 - blurScale)
+        shTranslate(shLeft, mouseX / $(window).width())
+        shTranslate(shRight, mouseX / $(window).width())
+    }
 });
