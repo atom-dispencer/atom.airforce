@@ -12120,6 +12120,12 @@ div.intro div.subheadings div.subheading {
   width: 50%;
   padding: 0 5% 0 5%;
 }
+div.intro div.subheadings div.subheading#subheading-left {
+  text-align: right;
+}
+div.intro div.subheadings div.subheading#subheading-right {
+  text-align: left;
+}
 
 ul.personal-links {
   list-style: none;
