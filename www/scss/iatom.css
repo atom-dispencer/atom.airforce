@@ -12195,10 +12195,10 @@ div.post-intro div.content div.main {
   width: 90vw;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
   align-content: center;
   justify-content: center;
-  flex-direction: column;
 }
 @media (prefers-color-scheme: light) {
   div.post-intro div.content div.main {
@@ -12208,6 +12208,11 @@ div.post-intro div.content div.main {
 @media (prefers-color-scheme: dark) {
   div.post-intro div.content div.main {
     background-color: #494F5A;
+  }
+}
+@media only screen and (max-width: 1050px) {
+  div.post-intro div.content div.main {
+    flex-direction: column;
   }
 }
 div.post-intro div.content div.main div.left {

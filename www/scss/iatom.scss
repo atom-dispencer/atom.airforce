@@ -249,10 +249,14 @@ div.post-intro {
             width: 90vw;
             display: flex;
             flex-wrap: wrap;
+            flex-direction: row;
             align-items: center;
             align-content: center;
             justify-content: center;
-            flex-direction: column;
+
+            @media only screen and (max-width: $thin-threshold-width) {
+                flex-direction: column;
+            }
 
             div.left {
                 padding-right: 10%;
