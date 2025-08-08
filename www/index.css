@@ -2,8 +2,14 @@ body {
   margin: 0;
   padding: 0;
   background-color: #23222A;
+}
 
-  p {
+p {
+  color: #EDE8ED;
+  font-family: "Courier New", "Courier New";
+  font-size: 16px;
+
+  a {
     color: #EDE8ED;
   }
 }
@@ -26,18 +32,29 @@ body {
   height: 100vh;
   overflow: hidden;
   position: fixed;
+  text-align: center;
 
   #header {
     width: 100vw;
     height: 40vh;
+
+    p {
+      font-size: 72px;
+      font-weight: 900;
+    }
   }
 
-  #left {
-    min-width: 50vw;
-  }
+  #centre {
+    display: flex;
+    flex-direction: row;
 
-  #right {
-    min-width: 50vw;
+    #left {
+      min-width: 50vw;
+    }
+
+    #right {
+      min-width: 50vw;
+    }
   }
 
   #footer {
@@ -45,5 +62,9 @@ body {
     height: 5vh;
     position: absolute;
     bottom: 0;
+
+    p {
+      font-size: 12px;
+    }
   }
 }
