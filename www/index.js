@@ -82,7 +82,7 @@ function typing_effect()
       const index = Math.floor(Math.random() * characters.length);
       title_current_text += characters.charAt(index);
       has_typo = true;
-      typo_cooldown = Math.floor(5 * Math.random()) + 5;
+      typo_cooldown = Math.floor(5 * Math.random()) + 2;
     }
     // Pause 
     else

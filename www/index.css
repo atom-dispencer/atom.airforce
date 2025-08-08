@@ -91,7 +91,7 @@ p {
 
   #footer {
     width: 100vw;
-    height: 5vh;
+    min-height: 5vh;
     position: absolute;
     bottom: 0;
 
@@ -99,6 +99,10 @@ p {
       margin-right: 5vw;
       margin-left: 5vw;
       font-size: 12px;
+
+      a {
+        font-size: 12px;
+      }
     }
   }
 
