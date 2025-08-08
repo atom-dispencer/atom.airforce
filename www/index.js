@@ -95,6 +95,8 @@ function typing_effect()
     if (!animation_finished_at_least_once)
     {
       document.getElementById('click-to-replay').classList.add('fade-in');
+      document.getElementById('title').classList.add('title-fly');
+      document.getElementById('centre').classList.add('fade-in');
     }
 
     animation_finished_at_least_once = true;

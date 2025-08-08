@@ -49,10 +49,11 @@ p {
   #header {
     width: 100vw;
     height: 40vh;
-    margin-top: 10vh;
+    margin-top: 12vh;
 
     #title {
       white-space: pre;
+      transform: translateY(30vh);
 
       @media only screen and (min-width: 800px)
       {
@@ -68,17 +69,33 @@ p {
       }
 
       font-weight: 900;
+      transition: all 0.5s ease;
+    }
+
+    #title.title-fly {
+      animation: title-fly-animation 2s ease forwards;
+      transform: translateY(0);
+    }
+     
+    #click-to-replay {
+      opacity: 0;
+      font-size: 12px;
+      transition: opacity 0.5s ease;
+    }
+
+    #click-to-replay.fade-in {
+      animation: fade-in-animation 5s ease forwards;
     }
 
     a {
       font-size: 12px;
     }
-
   }
 
   #centre {
     display: flex;
     flex-direction: row;
+    opacity: 0;
 
     #left {
       min-width: 50vw;
@@ -87,6 +104,10 @@ p {
     #right {
       min-width: 50vw;
     }
+  }
+
+  #centre.fade-in {
+    animation: fade-in-animation 5s ease forwards;
   }
 
   #footer {
@@ -105,21 +126,14 @@ p {
       }
     }
   }
-
-}
-
-#click-to-replay {
-  opacity: 0;
-  font-size: 12px;
-  transition: opacity 0.5s ease;
-}
-
-#click-to-replay.fade-in {
-  font-size: 12px;
-  animation: fade-in-animation 5s ease forwards;
 }
 
 @keyframes fade-in-animation {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+@keyframes title-fly-animation {
+  0% { transform: translateY(30vh); }
+  100% { height: translateY(0vh); }
 }
