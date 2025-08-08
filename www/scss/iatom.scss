@@ -214,12 +214,57 @@ div.post-intro {
     width: 100%;
 
     div.spacer {
-        aspect-ratio: 5;
+
+        $aspect-ratio: 5;
+
+        aspect-ratio: $aspect-ratio;
         width: 100%;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        background-image: url("../img/layered-waves-haikei.svg");
+        background-image: url("../img/waves/wave-bg.svg");
+
+        div {
+            aspect-ratio: $aspect-ratio;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+        }
+        div.wave1 { 
+            background-image: url("../img/waves/wave-1.svg");
+            animation: wave1 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+        }
+        div.wave2 { 
+            background-image: url("../img/waves/wave-2.svg"); 
+            animation: wave2 6s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+        }
+        div.wave3 { 
+            background-image: url("../img/waves/wave-3.svg"); 
+            animation: wave3 8s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+        }
+        div.wave4 { 
+            background-image: url("../img/waves/wave-4.svg");  
+            animation: wave4 7.5s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+        }
+
+        @keyframes wave1 {
+            0% { margin-left: 0; }
+            100% { margin-left: -1600px; }
+        }
+        @keyframes wave2 {
+            0% { margin-left: 0; }
+            100% { margin-left: -1600px; }
+        }
+        @keyframes wave3 {
+            0% { margin-left: 0; }
+            100% { margin-left: -1600px; }
+        }
+        @keyframes wave4 {
+            0% { margin-left: 0; }
+            100% { margin-left: -1600px; }
+        }
     }
 
     div.content {
