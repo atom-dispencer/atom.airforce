@@ -3,65 +3,40 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="scss/iatom.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
-    <title>iAtom.uk</title>
+    <title>atom.airforce</title>
 </head>
 
-<body>
-    <div class="intro">
-        <h1>iAtom.uk</h1>
+<body style="margin: 0; padding: 0;">
 
-        <div class="subheadings">
-            <div class="subheading" id="subheading-left">
-                <h2>iAtom</h2>
-                <p class="body tooltip-r" data-toggle="tooltip" data-placement="left"
-                    title="Burian, B.K. et al. (2017) Autonomous, Context-Sensitive, Task Management Systems and Decision Support Tools II: Contextual Constraints and Information Sources, NASA_TM_2017-219539. Available at: https://ntrs.nasa.gov/api/citations/20190027266/downloads/20190027266.pdf (Accessed: 08 September 2023):&NewLine;&NewLine;&quot;Thus, relative to presenting altitude information in terms of feet (as opposed tohectopascals or meters), numbers are required representing feet and some other indicator (e.g., ft., FL) to distinguish feet measurement above ground level (AGL) or MSL. We call these small, discrete data and information units “information atoms” or iAtoms. As described later, time and other resource limitations precluded our ability to identify all the iAtoms in some data/information categories.&quot;">
-                    A small, discrete <br>information and unit...
-                </p>
-                <a class="citation" href="https://ntrs.nasa.gov/api/citations/20190027266/downloads/20190027266.pdf#page=22">[NASA]</a>
-            </div>
-            <div class="subheading" id="subheading-right">
-                <h2>I, Atom</h2>
-                <p class="body">Me!</p>
-            </div>
-        </div>
+  <div id="waves">
+    <svg width="100%" height="100%" preserveAspectRatio="none">
+      <use xlink:href="resources/wave-1.svg"></use>
+    </svg>
+  </div>
+
+  <div id="content">
+
+    <div id="header">
+      <p>header</p>
     </div>
 
-    <div class="post-intro">
-        <div class="spacer">
-            <div class="wave1"></div>
-            <div class="wave2"></div>
-            <div class="wave3"></div>
-            <div class="wave4"></div>
-        </div>
+    <div id="centre">
+      <div id="left">
+        <p>left</p>
+      </div>
 
-        <div class="content">
-            <div class="main media-background" id="main-section">
-                <div class="left">
-                    <ul id="links" class="personal-links">                        
-                        <li><a href="https://github.com/atom-dispencer">atom-dispencer <i class="bi bi-github"></i></a></li>
-                        <li><a href="mailto://adam@iatom.uk">adam@iatom.uk <i class="bi bi-envelope-at"></i></a></li>
-                        <li><a href="https://linkedin.com/in/adam-spencer-59b259297">Adam Spencer <i class="bi bi-linkedin"></i></a></li>
-                    </ul>
-                </div>
-                <div class="right">
-                    <img
-                        src="data:image/png;base64,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">
-                </div>
-            </div>
-
-            <footer>
-                <p id="footer" class="footer-text media-background">
-                    <a href="https://iatom.uk">iatom.uk</a> © 2023 Adam Spencer.
-                    Source code is on <a href="https://github.com/GenElectrovise/iatom.uk">GitHub</a> and licensed under
-                    the
-                    <a href="https://opensource.org/license/mit/">MIT License</a>.
-                </p>
-            </footer>
-        </div>
+      <div id="right">
+        <p>right</p>
+      </div>
     </div>
+
+    <div id="footer">
+      <p>footer</p>
+    </div>
+
+  </div>
+
 </body>
-
 </html>

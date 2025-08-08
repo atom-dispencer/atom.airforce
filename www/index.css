@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #23222A;
+
+  p {
+    color: #EDE8ED;
+  }
+}
+
+#waves {
+  width: 100vw;
+  height: 25vh;
+  transform: scale(1,-1);
+  position: fixed;
+
+  svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+#content {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: fixed;
+
+  #header {
+    width: 100vw;
+    height: 40vh;
+  }
+
+  #left {
+    min-width: 50vw;
+  }
+
+  #right {
+    min-width: 50vw;
+  }
+
+  #footer {
+    width: 100vw;
+    height: 5vh;
+    position: absolute;
+    bottom: 0;
+  }
+}
