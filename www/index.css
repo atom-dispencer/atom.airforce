@@ -15,10 +15,12 @@ p {
 }
 
 #waves {
-  width: 100vw;
+  width: 120vw;
   height: 25vh;
   transform: scale(1,-1);
-  position: fixed;
+  position: absolute;
+  left: -10vw;
+  z-index: 10;
 
   svg {
     display: block;
@@ -37,9 +39,19 @@ p {
   #header {
     width: 100vw;
     height: 40vh;
+    margin-top: 10vh;
 
     p {
-      font-size: 72px;
+
+      @media only screen and (min-width: 1200px)
+      {
+        font-size: 72px;
+      }
+      @media only screen and (max-width: 1199px)
+      {
+        font-size: 48px;
+      }
+
       font-weight: 900;
     }
   }

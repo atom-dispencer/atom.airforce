@@ -11,15 +11,16 @@
 <body style="margin: 0; padding: 0;">
 
   <div id="waves">
-    <svg width="100%" height="100%" preserveAspectRatio="none">
-      <use xlink:href="resources/wave-1.svg"></use>
+    <svg id="wave-svg" preserveAspectRatio="none" viewBox="0 0 900 600" width="900" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+      <path id="wave-path-darker" d="M0 328L25 330.7C50 333.3 100 338.7 150 338.5C200 338.3 250 332.7 300 334.5C350 336.3 400 345.7 450 359.2C500 372.7 550 390.3 600 378.8C650 367.3 700 326.7 750 325.3C800 324 850 362 875 381L900 400L900 601L875 601C850 601 800 601 750 601C700 601 650 601 600 601C550 601 500 601 450 601C400 601 350 601 300 601C250 601 200 601 150 601C100 601 50 601 25 601L0 601Z" fill="#332d38"/>
+      <path id="wave-path-lighter" d="M0 435L25 436.2C50 437.3 100 439.7 150 436.2C200 432.7 250 423.3 300 420.5C350 417.7 400 421.3 450 424C500 426.7 550 428.3 600 428.2C650 428 700 426 750 438.5C800 451 850 478 875 491.5L900 505L900 601L875 601C850 601 800 601 750 601C700 601 650 601 600 601C550 601 500 601 450 601C400 601 350 601 300 601C250 601 200 601 150 601C100 601 50 601 25 601L0 601Z" fill="#443946"/>
     </svg>
   </div>
 
   <div id="content">
 
     <div id="header">
-      <p>atom.airforce</p>
+      <p id="title">atom.airforce</p>
     </div>
 
     <div id="centre">
@@ -35,7 +36,7 @@
     <div id="footer">
       <p> 
         <a href="https://iatom.uk">atom.airforce</a> © 2025 Adam Spencer.
-        Source code is on <a href="https://github.com/GenElectrovise/iatom.uk">GitHub</a>
+        Source code is on <a href="https://github.com/atom-dispencer/atom.airforce">GitHub</a>
         and licensed under the <a href="https://opensource.org/license/mit/">MIT License</a>.
       </p>
     </div>
