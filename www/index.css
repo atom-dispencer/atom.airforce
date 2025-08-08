@@ -2,6 +2,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #23222A;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 p {
@@ -42,14 +45,19 @@ p {
     margin-top: 10vh;
 
     p {
+      white-space: pre;
 
-      @media only screen and (min-width: 1200px)
+      @media only screen and (min-width: 800px)
       {
         font-size: 72px;
       }
-      @media only screen and (max-width: 1199px)
+      @media only screen and (max-width: 799px)
       {
         font-size: 48px;
+      }
+      @media only screen and (max-width: 450px)
+      {
+        font-size: 11vw;
       }
 
       font-weight: 900;
@@ -76,6 +84,8 @@ p {
     bottom: 0;
 
     p {
+      margin-right: 5vw;
+      margin-left: 5vw;
       font-size: 12px;
     }
   }
