@@ -13,6 +13,7 @@ var is_flashed = false;
 var title_current_text = "";
 var has_typo = 0;
 var typo_cooldown = 0;
+var animation_finished_at_least_once = false;
 
 function lazy_setup()
 {
@@ -89,6 +90,15 @@ function typing_effect()
       // Do nothing: the typist has paused for thought.
     }
   }
+  else 
+  {
+    if (!animation_finished_at_least_once)
+    {
+      document.getElementById('click-to-replay').classList.add('fade-in');
+    }
+
+    animation_finished_at_least_once = true;
+  }
 
   // Set text
   if (is_flashed)
@@ -101,6 +111,13 @@ function typing_effect()
   }
 }
 
+function reset_title_text()
+{
+  console.log("Resetting title text!");
+  title_current_text = "";
+  typing_index = 0;
+}
+
 function blend_waves()
 {
   console.log("Blending waves...");
@@ -111,8 +128,10 @@ function blend_waves()
   //   [1,2) -> 1
   //   [9,9.99] -> 9
   const next_wave_index = Math.floor(9.99 * Math.random()) + 1;
-  const path = `resources/wave-${next_wave_index}.svg?=${Math.random()}`;
+  const path = `resources/wave-${next_wave_index}.svg`;
 
+  // We don't need a smarter caching system because the JS engine should cache the SVG files on
+  // the disk for us. Hence, we spread out the bandwidth requirement but still get cool waves!
   fetch(path)
     .then(resource => resource.text())
     .then(svg_text => {

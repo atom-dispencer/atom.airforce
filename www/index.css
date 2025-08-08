@@ -7,6 +7,12 @@ body {
   overflow: hidden;
 }
 
+a {
+  color: #EDE8ED;
+  font-family: "Courier New", "Courier New";
+  font-size: 16px;
+}
+
 p {
   color: #EDE8ED;
   font-family: "Courier New", "Courier New";
@@ -24,6 +30,7 @@ p {
   position: absolute;
   left: -10vw;
   z-index: 10;
+  pointer-events: none;
 
   svg {
     display: block;
@@ -44,7 +51,7 @@ p {
     height: 40vh;
     margin-top: 10vh;
 
-    p {
+    #title {
       white-space: pre;
 
       @media only screen and (min-width: 800px)
@@ -62,6 +69,11 @@ p {
 
       font-weight: 900;
     }
+
+    a {
+      font-size: 12px;
+    }
+
   }
 
   #centre {
@@ -89,4 +101,21 @@ p {
       font-size: 12px;
     }
   }
+
+}
+
+#click-to-replay {
+  opacity: 0;
+  font-size: 12px;
+  transition: opacity 0.5s ease;
+}
+
+#click-to-replay.fade-in {
+  font-size: 12px;
+  animation: fade-in-animation 5s ease forwards;
+}
+
+@keyframes fade-in-animation {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
