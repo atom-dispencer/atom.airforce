@@ -80,7 +80,7 @@ p {
     #click-to-replay {
       opacity: 0;
       font-size: 12px;
-      transition: opacity 0.5s ease;
+      transition: all 0.5s ease;
     }
 
     #click-to-replay.fade-in {
@@ -94,11 +94,49 @@ p {
 
   #centre {
     display: flex;
-    flex-direction: row;
     opacity: 0;
+
+    @media only screen and (min-width: 550px)
+    {
+      flex-direction: row;
+    }
+    @media only screen and (max-width: 549px)
+    {
+      flex-direction: column-reverse;
+    }
 
     #left {
       min-width: 50vw;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: fit-content;
+        margin: 0 auto;
+
+        a {
+          text-decoration: none;
+
+          #svg-linkedin {
+            width: 24px;
+            transform: translateY(8px);
+          }
+
+          #p-linkedin {
+            display: inline;
+          }
+
+          #svg-github {
+            width: 24px;
+            transform: translateY(8px);
+          }
+
+          #p-github {
+            display: inline;
+          }
+        }
+      }
     }
 
     #right {
