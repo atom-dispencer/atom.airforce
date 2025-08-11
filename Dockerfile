@@ -1,7 +1,5 @@
-FROM busybox:stable-glibc
+FROM httpd:2.4-alpine3.22 
 
-WORKDIR /www
-COPY www/ /www
+COPY www/ /usr/local/apache2/htdocs/
 
 EXPOSE 80
-CMD busybox httpd -f -v -p 80 -h /www
