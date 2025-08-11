@@ -2,6 +2,5 @@ services:
   docker-http:
     ports:
       - 8080:80
-    build:
-      context: .
+    build: .
     restart: unless-stopped 
