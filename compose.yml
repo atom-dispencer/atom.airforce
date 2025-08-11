@@ -1,0 +1,5 @@
+services:
+  docker-http:
+    build:
+      context: .
+    restart: unless-stopped 
