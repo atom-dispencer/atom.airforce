@@ -10,6 +10,6 @@ services:
 
 secrets:
   ssl-csr:
-    file: ~/certs/atom.airforce.crt
+    file: ~/certs/atom-airforce.crt
   ssl-key:
-    file: ~/certs/atom.airforce.key
+    file: ~/certs/atom-airforce.key
