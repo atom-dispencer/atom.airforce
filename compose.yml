@@ -4,3 +4,12 @@ services:
       - 80:80
     build: .
     restart: unless-stopped 
+    secrets:
+      - ssl-csr
+      - ssl-key
+
+secrets:
+  ssl-csr:
+    file: /certs/atom.airforce.csr
+  ssl-key:
+    file: /certs/atom.airforce.key
