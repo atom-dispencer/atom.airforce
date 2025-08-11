@@ -1,5 +1,6 @@
 FROM busybox:stable-glibc
 
+WORKDIR /www
 COPY www/ /www
 
 EXPOSE 80
