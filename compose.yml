@@ -6,5 +6,5 @@ services:
     build: .
     restart: unless-stopped 
     volumes:
-      - ~/certs/atom-airforce.crt:/usr/local/apache2/conf/server.crt:ro
-      - ~/certs/atom-airforce.key:/usr/local/apache2/conf/server.key:ro
+      - /etc/letsencrypt/live/atom.airforce/fullchain.pem:/usr/local/apache2/conf/server.crt:ro
+      - /etc/letsencrypt/live/atom.airforce/privkey.pem:/usr/local/apache2/conf/server.key:ro
