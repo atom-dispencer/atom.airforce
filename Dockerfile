@@ -1,10 +1,6 @@
 FROM httpd:2.4-alpine3.22 
 
-COPY www/ /var/www/html/
-COPY atom-airforce.conf /etc/apache2/sites-available/atom-airforce
-
-RUN a2enmod ssl
-RUN a2dissite 000-default default-ssl
-RUN a2ensite atom-airforce
+COPY www/ /usr/local/apache2/htdocs/
+COPY httpd.conf /usr/local/apache2/conf/httpd.conf
 
 EXPOSE 80
