@@ -4,12 +4,9 @@ services:
       - 80:80
     build: .
     restart: unless-stopped 
+    volumes:
+      - ~/certs/atom-airforce.crt:/usr/local/apache2/conf/server.crt:ro
+      - ~/certs/atom-airforce.key:/usr/local/apache2/conf/server.key:ro
     secrets:
       - ssl-csr
       - ssl-key
-
-secrets:
-  ssl-csr:
-    file: ~/certs/atom-airforce.crt
-  ssl-key:
-    file: ~/certs/atom-airforce.key
