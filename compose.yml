@@ -1,10 +1,12 @@
 services:
   docker-http:
+    image: httpd:2.4-alpine3.22 
     ports:
       - 80:80
       - 443:443
-    build: .
     restart: unless-stopped 
     volumes:
       - /etc/letsencrypt/live/atom.airforce/fullchain.pem:/usr/local/apache2/conf/server.crt:ro
       - /etc/letsencrypt/live/atom.airforce/privkey.pem:/usr/local/apache2/conf/server.key:ro
+      - www/:/usr/local/apache2/htdocs/:ro
+      - httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
