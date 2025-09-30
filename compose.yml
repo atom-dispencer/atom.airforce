@@ -4,7 +4,7 @@ services:
     ports:
       - 80:80
       - 443:443
-    restart: unless-stopped 
+    restart: always
     volumes:
       - /etc/letsencrypt/live/atom.airforce/fullchain.pem:/usr/local/apache2/conf/server.crt:ro
       - /etc/letsencrypt/live/atom.airforce/privkey.pem:/usr/local/apache2/conf/server.key:ro
