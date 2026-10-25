@@ -168,5 +168,5 @@ function blend_waves()
 document.addEventListener('DOMContentLoaded', lazy_setup, false);
 
 window.addEventListener('load', () => {
-  document.getElementById('main-photo')
+  document.getElementById('main-photo').src = 'resources/Photo_0.jpeg';
 })
