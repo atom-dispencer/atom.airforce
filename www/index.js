@@ -166,3 +166,7 @@ function blend_waves()
 }
 
 document.addEventListener('DOMContentLoaded', lazy_setup, false);
+
+window.addEventListener('load', () => {
+  document.getElementById('main-photo')
+})
