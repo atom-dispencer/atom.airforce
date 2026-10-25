@@ -1,3 +1,21 @@
+# Bundle Size
+
+| Loading Stage                   | File            | Size        |
+| ------------------------------- | --------------- | ----------- |
+| Sub-14kB Instanly Displayed     | `index.html`    | 2,224 B     |
+| Sub-14kB Instanly Displayed     | `index.css`     | 951 B       |
+| Sub-14kB Instanly Displayed     | `index.js`      | 1,599 B     |
+| -                               | *Subtotal*      | 4,774 B     |
+| ------------------------------- | --------------- | ----------- |
+| Lazy Setup (`DOMContentLoaded`) | `kute.js`       | 14,356 B    |
+| Lazy Setup (`DOMContentLoaded`) | `wave-??.svg`   | \~1,000 B   |
+| -                               | *Subtotal*      | \~15,356 B  |
+| ------------------------------- | --------------- | ----------- |
+| Lazy Setup (`load`)             | `Photo_0.jpeg`  | \~266,000 B |
+| -                               | *Subtotal*      | \~266,000 B |
+| ------------------------------- | --------------- | ----------- |
+| -                               | **Grand Total** | \~286,130 B |
+
 # atom.airforce — Debian Apache deployment
 
 Serves the repository's static site using Apache installed directly on Debian. Docker is not used. The site is served from `/atom.airforce/www`; Apache worker processes run as the dedicated `httpd-atom-airforce` user.
